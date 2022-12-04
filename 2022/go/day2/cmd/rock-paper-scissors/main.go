@@ -54,17 +54,17 @@ var referee = map[string]map[string]int{
 }
 
 func main() {
-	// question1()
-	question2()
-}
-
-func question1() {
 	wd, err := os.Getwd()
 	if err != nil {
 		panic(err)
 	}
 	contents := io.ReadInputBytes(wd + "/input.txt")
 	rounds := strings.Split(strings.Trim(string(contents), " "+"\n"), "\n")
+	question1(rounds)
+	question2(rounds)
+}
+
+func question1(rounds []string) {
 	score := 0
 	for _, r := range rounds {
 		score += scoreRound(strings.Split(r, " "))
@@ -72,13 +72,7 @@ func question1() {
 	fmt.Println(score)
 }
 
-func question2() {
-	wd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	contents := io.ReadInputBytes(wd + "/input.txt")
-	rounds := strings.Split(strings.Trim(string(contents), " "+"\n"), "\n")
+func question2(rounds []string) {
 	score := 0
 	for _, r := range rounds {
 		score += hackRound(strings.Split(r, " "))
