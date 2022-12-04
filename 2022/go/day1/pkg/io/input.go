@@ -3,6 +3,7 @@ package io
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func ReadInputBytes(path string) []byte {
@@ -15,4 +16,8 @@ func ReadInputBytes(path string) []byte {
 		os.Exit(1)
 	}
 	return contents
+}
+
+func BytesToTrimmedString(contents []byte, cut string) string {
+	return strings.Trim(string(contents), cut)
 }
