@@ -54,11 +54,7 @@ var referee = map[string]map[string]int{
 }
 
 func main() {
-	wd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	contents := io.ReadInputBytes(wd + "/input.txt")
+	contents := io.ReadInputBytes("")
 	rounds := strings.Split(strings.Trim(string(contents), " "+"\n"), "\n")
 	question1(rounds)
 	question2(rounds)
